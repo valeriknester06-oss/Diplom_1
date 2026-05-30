@@ -42,10 +42,16 @@ public class BurgerTest {
     }
 
     @Test
-    public void addIngredientTest() {
+    public void addIngredientIncreasesIngredientsSizeTest() {
         burger.addIngredient(sauce);
 
         assertEquals(1, burger.ingredients.size());
+    }
+
+    @Test
+    public void addIngredientAddsIngredientToListTest() {
+        burger.addIngredient(sauce);
+
         assertEquals(sauce, burger.ingredients.get(0));
     }
 
@@ -59,13 +65,22 @@ public class BurgerTest {
     }
 
     @Test
-    public void moveIngredientTest() {
+    public void moveIngredientMovesFillingToFirstPositionTest() {
         burger.addIngredient(sauce);
         burger.addIngredient(filling);
 
         burger.moveIngredient(1, 0);
 
         assertEquals(filling, burger.ingredients.get(0));
+    }
+
+    @Test
+    public void moveIngredientMovesSauceToSecondPositionTest() {
+        burger.addIngredient(sauce);
+        burger.addIngredient(filling);
+
+        burger.moveIngredient(1, 0);
+
         assertEquals(sauce, burger.ingredients.get(1));
     }
 
